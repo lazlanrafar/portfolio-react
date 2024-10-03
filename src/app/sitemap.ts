@@ -10,19 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: siteConfig.url + "/about",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: siteConfig.url + "/projects",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: siteConfig.url + "/activity",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
@@ -32,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: siteConfig.url + "/about/sitemap.xml",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: siteConfig.url + "/activity/sitemap.xml",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
     },
   ];
 }
