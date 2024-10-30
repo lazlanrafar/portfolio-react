@@ -5,7 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-import { AppFooter, AppSidebar } from "@/components/app";
+import { AppFooter, AppSidebar, AppTitlebar } from "@/components/app";
 import { ResponsiveIndicator } from "@/components/atoms/responsive-indicator";
 import { ThemeWrapper } from "@/components/atoms/theme-wrapper";
 import { ThemeToggle } from "@/components/molecules/theme-toggle";
@@ -104,16 +104,17 @@ export default function RootLayout({
         <ThemeWrapper attribute="class" defaultTheme="dark" enableSystem>
           <main className="md:flex">
             <AppSidebar />
-            <div className="h-full w-full relative overflow-y-auto">
+            <div className="h-full w-full relative overflow-y-auto pt-8">
               {children}
 
-              <div className="absolute top-0 right-0 hidden md:block z-50">
+              {/* <div className="absolute top-0 right-0 hidden md:block z-50">
                 <div className="border-b border-l bg-background">
                   <ThemeToggle />
                 </div>
-              </div>
+              </div> */}
             </div>
 
+            <AppTitlebar />
             <AppFooter />
           </main>
         </ThemeWrapper>
