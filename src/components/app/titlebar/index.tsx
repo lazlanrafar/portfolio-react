@@ -16,7 +16,7 @@ export default function AppTitlebar() {
   const { setTheme } = useTheme();
 
   return (
-    <div className="absolute left-0 top-0 w-full flex items-center justify-between bg-border text-xs border-b z-50 py-2 px-3">
+    <div className="absolute left-0 top-0 w-full hidden md:flex items-center justify-between bg-border text-xs border-b z-50 py-2 px-3">
       <div className="flex items-center gap-1">
         <div className="w-3 h-3 rounded-full cursor-pointer bg-red-600"></div>
         <div className="w-3 h-3 rounded-full cursor-pointer bg-yellow-600"></div>
