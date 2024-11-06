@@ -12,8 +12,27 @@ import {
 } from "@/components/atoms/dropdown-menu";
 import { Icons } from "@/components/atoms/icons";
 
+const themes = [
+  { label: "Light", value: "light", confirm: true },
+  { label: "Dark", value: "dark", confirm: false },
+];
+
 export default function AppTitlebar() {
   const { setTheme } = useTheme();
+
+  const handleThemeChange = (theme: {
+    label: string;
+    value: string;
+    confirm: boolean;
+  }) => {
+    if (theme.confirm) {
+      const confirmation = confirm(
+        "Get ready for a dazzling experience! 🌟 \nAre you absolutely sure you want to switch to the light mode and unleash the flashbang? 💡💥"
+      );
+      if (!confirmation) return;
+    }
+    setTheme(theme.value);
+  };
 
   return (
     <div className="absolute left-0 top-0 w-full hidden md:flex items-center justify-between bg-border text-xs border-b z-50 py-2 px-3">
@@ -33,21 +52,14 @@ export default function AppTitlebar() {
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              onClick={() => {
-                confirm(
-                  "Get ready for a dazzling experience! 🌟 \nAre you absolutely sure you want to switch to the light mode and unleash the flashbang? 💡💥"
-                ) && setTheme("light");
-              }}
-            >
-              Light
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>
-              Dark
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("system")}>
-              System
-            </DropdownMenuItem>
+            {themes.map((theme) => (
+              <DropdownMenuItem
+                key={theme.value}
+                onClick={() => handleThemeChange(theme)}
+              >
+                {theme.label}
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

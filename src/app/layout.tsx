@@ -5,7 +5,12 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-import { AppFooter, AppSidebar, AppTitlebar } from "@/components/app";
+import {
+  AppCommandDialog,
+  AppFooter,
+  AppSidebar,
+  AppTitlebar,
+} from "@/components/app";
 import { ResponsiveIndicator } from "@/components/atoms/responsive-indicator";
 import { ThemeWrapper } from "@/components/atoms/theme-wrapper";
 import { ThemeToggle } from "@/components/molecules/theme-toggle";
@@ -128,6 +133,7 @@ export default function RootLayout({
         )}
 
         <ResponsiveIndicator />
+        <AppCommandDialog />
       </body>
     </html>
   );
