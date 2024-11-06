@@ -3,6 +3,7 @@ import { wakatimeCodingLanguages } from "@/lib/wakatime";
 
 export default async function ActivityLanguagesPage() {
   const { data } = await wakatimeCodingLanguages();
+  if (!data) return null;
 
   return (
     <FadeIn>

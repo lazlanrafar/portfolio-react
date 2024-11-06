@@ -3,6 +3,7 @@ import { wakatimeCodeEditor } from "@/lib/wakatime";
 
 export default async function CodeEditor() {
   const { data } = await wakatimeCodeEditor();
+  if (!data) return null;
 
   return (
     <FadeIn>

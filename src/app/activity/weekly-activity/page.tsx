@@ -3,6 +3,7 @@ import { wakatimeWeeklyCodingActivity } from "@/lib/wakatime";
 
 export default async function ActivityActivityPage() {
   const { data } = await wakatimeWeeklyCodingActivity();
+  if (!data) return null;
 
   const maxTotalSeconds = Math.max(
     ...data.map((entry) => entry.grand_total.total_seconds)

@@ -20,7 +20,7 @@ import Link from "next/link";
 
 export default async function AppFooter() {
   const { data } = await wakatimeWeeklyCodingActivity();
-  const todayData = data[data.length - 1];
+  const todayData = data ? data[data.length - 1] : null;
 
   return (
     <div className="absolute left-0 bottom-0 w-full flex items-center justify-between bg-background text-xs border-t z-50">

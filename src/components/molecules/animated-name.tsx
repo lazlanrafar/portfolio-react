@@ -54,7 +54,7 @@ export const AnimatedName = () => {
   return (
     <h1
       ref={ref}
-      className="text-5xl md:text-[max(6vw,21px)] font-bold leading-none"
+      className="text-5xl md:text-[max(5vw,21px)] font-bold leading-none"
     >
       {text}
     </h1>

@@ -13,12 +13,6 @@ const nextConfig = {
   images: {
     remotePatterns: [{ hostname: "images.microcms-assets.io" }],
   },
-  experimental: {
-    webpackBuildWorker: true,
-    serverActions: {
-      enabled: true,
-    },
-  },
   logging: {
     fetches: {
       fullUrl: true,

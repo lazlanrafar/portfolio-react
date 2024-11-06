@@ -3,6 +3,7 @@ import { wakatimeOperatingSystems } from "@/lib/wakatime";
 
 export default async function OperatingSystems() {
   const { data } = await wakatimeOperatingSystems();
+  if (!data) return null;
 
   return (
     <FadeIn>

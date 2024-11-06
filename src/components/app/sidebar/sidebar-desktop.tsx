@@ -10,11 +10,16 @@ import {
   TooltipTrigger,
 } from "@/components/atoms/tooltip";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export default function AppSidebarDesktop() {
   const pathname = usePathname();
   const activeBackRef = useRef<HTMLDivElement>(null);
   const navItemRef = useRef<HTMLDivElement>(null);
+
+  const isExist = NAVIGATION.some((item) =>
+    item.path.startsWith(`/${pathname.split("/")[1]}`)
+  );
 
   const handleTransition = (index: number) => {
     const activeBack = activeBackRef.current;
@@ -44,7 +49,10 @@ export default function AppSidebarDesktop() {
     <div className="hidden md:flex flex-col w-full relative">
       <div
         ref={activeBackRef}
-        className="absolute top-0 h-14 w-full border-y z-10 translate-y-0 transition-transform duration-300 ease-in-out"
+        className={cn(
+          "absolute top-0 h-14 w-full border-y z-10 translate-y-0 transition-transform duration-300 ease-in-out",
+          isExist ? "" : "hidden"
+        )}
       />
 
       {NAVIGATION.map((item, index) => (
