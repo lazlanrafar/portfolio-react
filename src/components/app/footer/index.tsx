@@ -5,7 +5,6 @@ import {
   TooltipTrigger,
 } from "@/components/atoms/tooltip";
 import { siteConfig } from "@/constants";
-import { wakatimeWeeklyCodingActivity } from "@/lib/wakatime";
 import {
   AlertCircle,
   AlertTriangle,
@@ -17,11 +16,9 @@ import {
   XCircle,
 } from "lucide-react";
 import Link from "next/link";
+import FooterCodingActivity from "./footer-coding-activity";
 
-export default async function AppFooter() {
-  const { data } = await wakatimeWeeklyCodingActivity();
-  const todayData = data ? data[data.length - 1] : null;
-
+export default function AppFooter() {
   return (
     <div className="absolute left-0 bottom-0 w-full flex items-center justify-between bg-background text-xs border-t z-50">
       <div className="flex items-center border-r divide-x">
@@ -60,23 +57,7 @@ export default async function AppFooter() {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="/activity"
-                className="items-center gap-x-1 px-2 py-1 md:flex hidden text-muted-foreground"
-              >
-                <Clock size={13} className="text-base" />
-                <p>{todayData?.grand_total.text}</p>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent className="!border-none">
-              <p>Today coding activity</p>
-              <p className="text-sm text-muted-foreground">click for more</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <FooterCodingActivity />
         <div className="items-center gap-x-1 px-2 py-1 md:flex hidden text-muted-foreground">
           <p>--NORMAL--</p>
         </div>

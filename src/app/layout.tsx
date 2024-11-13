@@ -21,11 +21,18 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import { La_Belle_Aurore } from "next/font/google";
+import { La_Belle_Aurore, Playfair_Display } from "next/font/google";
+
 const LaBelleAurore = La_Belle_Aurore({
   weight: ["400"],
   subsets: ["latin"],
   variable: "--font-la-belle-aurore",
+});
+
+const PlayfairDisplay = Playfair_Display({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
 });
 
 export const metadata: Metadata = {
@@ -104,12 +111,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} ${LaBelleAurore.variable} font-mono`}
+        className={`${GeistSans.variable} ${GeistMono.variable} ${LaBelleAurore.variable} ${PlayfairDisplay.variable} font-mono`}
       >
         <ThemeWrapper attribute="class" defaultTheme="dark" enableSystem>
           <main className="md:flex">
             <AppSidebar />
             <div className="h-full w-full relative overflow-y-auto pt-8">
+              <div className="noise"></div>
               {children}
 
               {/* <div className="absolute top-0 right-0 hidden md:block z-50">

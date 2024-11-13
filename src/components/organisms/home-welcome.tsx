@@ -1,98 +1,39 @@
-import { siteConfig } from "@/constants";
-import { FadeIn } from "../atoms/fade-in";
-import { AnimatedName } from "../molecules/animated-name";
+import Image from "next/image";
 
 export default function HomeWelcome() {
+  const lanes = ["Let Me Introduce", "My self meme1", "As Developer."];
+
   return (
     <section className="flex flex-col w-full h-full px-10 py-[10rem] md:py-20">
-      <div className="flex-1 flex items-center justify-between">
-        <div className="text-xs md:text-sm hidden sm:block">2003</div>
-        <div className="text-xs md:text-sm hidden md:block">12.5</div>
-        <FadeIn>
-          <div className="space-y-4 text-center ">
-            <svg
-              data-name="Calque 1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 99.81 93.24"
-              width={24}
-              height={24}
-              color="currentColor"
-              className="mx-auto text-red-500 animate-pulse"
-            >
-              <path
-                d="M.1,60.51V13.56H11.26V3.38h22V13.69H44.48V29.18H55.57V13.69H66.74V3.38h22V13.56H99.9V60.51H88.77V70.75h-11V81.16H61.16V96.62H38.84V81H22.23V70.69H11.17V60.51Z"
-                transform="translate(-0.1 -3.38)"
-                fill="currentColor"
-              />
-            </svg>
+      <div className="font-playfair my-auto text-center font-display text-5xl md:text-8xl xl:text-8xl 2xl:text-[8rem]">
+        {lanes.map((lane, laneIndex) => (
+          <h1 key={laneIndex}>
+            {lane.split(" ").map((letter, letterIndex) => (
+              <span
+                className="inline-block overflow-hidden"
+                key={`${letter}-${laneIndex}-${letterIndex}`}
+              >
+                {letter == "meme1" ? (
+                  <span className="inline-block overflow-hidden">
+                    {/* <span className="hidden h-[130px] w-[130px] overflow-hidden md:block">
+                      <Image
+                        src={"/meme/1.webp"}
+                        alt="meme"
+                        width={150}
+                        height={150}
+                        className="h-full w-full object-cover"
+                      />
+                    </span> */}
+                  </span>
+                ) : (
+                  <span>{letter}</span>
+                )}
 
-            <header className="relative">
-              <p className="text-lg uppercase">Hi all. I am</p>
-              <AnimatedName />
-              <h2 className="text-muted-foreground text-base sm:text-xl md:text-2xl">
-                <span className="animate-pulse">&gt; </span>
-                Software developer
-              </h2>
-
-              <div className="absolute w-full h-1/2 bg-muted-foreground/10 blur-2xl top-0 left-0 -z-10 rounded-full animate-pulse" />
-            </header>
-
-            <div className="space-y-2 sm:text-sm text-xs">
-              <p className="text-muted-foreground">{`// you can also see it on my Github page`}</p>
-              <p className="text-muted-foreground">
-                <span className=" italic">const</span>{" "}
-                <span className="">githubLink</span> ={" "}
-                <a
-                  target="_blank"
-                  href={siteConfig.links.github}
-                  className=" hover:underline hover:text-foreground transition-colors"
-                >
-                  &apos;{siteConfig.links.github}&apos;
-                </a>
-              </p>
-            </div>
-          </div>
-        </FadeIn>
-        <div className="text-xs md:text-sm hidden md:block">FREE</div>
-        <div className="text-xs md:text-sm hidden sm:block">
-          {new Date().getFullYear()}
-        </div>
-      </div>
-
-      <div>
-        <ul className="flex justify-between md:justify-start gap-8">
-          <li>
-            <a
-              className="text-sm hover:underline"
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-sm hover:underline"
-              href={siteConfig.links.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-sm hover:underline"
-              href={siteConfig.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Linkedin
-            </a>
-          </li>
-        </ul>
+                <span className="">&nbsp;</span>
+              </span>
+            ))}
+          </h1>
+        ))}
       </div>
     </section>
   );

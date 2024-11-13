@@ -56,6 +56,7 @@
   body {
     @apply flex items-center justify-center h-screen w-full overflow-hidden;
   }
+
   main {
     @apply md:h-[calc(100dvh-10%)] md:w-[calc(100dvw-5%)] h-[calc(100dvh-4%)] w-[calc(100dvw-5%)] bg-background backdrop-blur rounded-lg overflow-hidden border relative z-50 transition-all;
   }
@@ -86,5 +87,56 @@
   }
   html.dark [data-theme="light"] {
     display: none;
+  }
+}
+
+.noise {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  z-index: 999;
+  height: 200vh;
+  background: transparent url("/noice.png") repeat 0 0;
+  background-repeat: repeat;
+  animation: noise 0.2s infinite;
+  opacity: 0.9;
+  visibility: visible;
+  pointer-events: none;
+}
+
+@keyframes noise {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 10%);
+  }
+  70% {
+    transform: translate(10%, -10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
   }
 }

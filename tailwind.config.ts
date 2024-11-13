@@ -20,6 +20,7 @@ module.exports = {
         sans: "var(--font-geist-sans)",
         mono: "var(--font-geist-mono)",
         laBelleAurore: "var(--font-la-belle-aurore)",
+        playfair: "var(--font-playfair-display)",
       },
       colors: {
         border: "hsl(var(--border))",
